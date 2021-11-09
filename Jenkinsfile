@@ -26,26 +26,26 @@ pipeline {
                 '''
             }
         }
-        // stage('Terraform Apply') {
-        //     when {
-        //         branch 'main'
-        //     }
-        //     steps {
-        //         echo "Terraform Apply"
-        //         echo "We are running Terraform version..."
-        //         sh '''
-        //             terraform -version
-        //         '''
-        //         echo "Terraform Init..."
-        //         sh '''
-        //             terraform init
-        //         '''
-        //         echo "Terraform Apply..."
-        //         sh '''
-        //             terraform apply -auto-approve
-        //         '''
-        //     }
-        // }
+        stage('Terraform Apply') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo "Terraform Apply"
+                echo "We are running Terraform version..."
+                sh '''
+                    terraform -version
+                '''
+                echo "Terraform Init..."
+                sh '''
+                    terraform init
+                '''
+                // echo "Terraform Apply..."
+                // sh '''
+                //     terraform apply -auto-approve
+                // '''
+            }
+        }
         // stage('Environment Cleanup') {
         //     when {
         //         branch 'destroy'

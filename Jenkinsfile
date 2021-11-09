@@ -46,24 +46,25 @@ pipeline {
         //         '''
         //     }
         // }
-        // stage('Environment Cleanup') {
-        //     when {
-        //         branch 'destroy'
-        //     }
-        //     steps {
-        //         echo "Terraform Destroy"
-        //         echo "We are running Terraform version..."
-        //         sh '''
-        //             terraform -version
-        //         '''
-        //         echo "Terraform Init..."
-        //         sh '''
-        //             terraform init
-        //         '''
-        //         echo "Terraform Destroy..."
-        //         sh '''
-        //             terraform destroy -auto-approve
-        //         '''
-        //     }
+        stage('Environment Cleanup') {
+            when {
+                branch 'destroy'
+            }
+            steps {
+                echo "Terraform Destroy"
+                echo "We are running Terraform version..."
+                sh '''
+                    terraform -version
+                '''
+                echo "Terraform Init..."
+                sh '''
+                    terraform init
+                '''
+                // echo "Terraform Destroy..."
+                // sh '''
+                //     terraform destroy -auto-approve
+                // '''
+            }
+        }
     }
 }

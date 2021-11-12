@@ -12,6 +12,10 @@ terraform {
       version = "~> 2.0"
     }
   }
+  backend "gcs" {
+    bucket = "kgangi-capstone-tf"
+    prefix = "terraform/state"
+  }
 }
 
 provider "google" {

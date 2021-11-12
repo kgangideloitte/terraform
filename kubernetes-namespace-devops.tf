@@ -1,5 +1,11 @@
-resource "kubernetes_namespace" "n" {
+resource "kubernetes_namespace" "main" {
   metadata {
-    name = "devopsclass"
+    name = "main-branch"
+  }
+}
+
+resource "kubernetes_namespace" "dev" {
+  metadata {
+    name = "dev-branch"
   }
 }

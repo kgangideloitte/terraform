@@ -34,7 +34,7 @@ resource "kubernetes_deployment" "node-int-deployment-main" {
           resources {
             limits = {
               cpu    = "0.2"
-              memory = "2562Mi"
+              memory = "256Mi"
             }
             requests = {
               cpu    = "0.1"
@@ -83,7 +83,7 @@ resource "kubernetes_deployment" "node-int-deployment-dev" {
           resources {
             limits = {
               cpu    = "0.2"
-              memory = "2562Mi"
+              memory = "256Mi"
             }
             requests = {
               cpu    = "0.1"

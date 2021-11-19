@@ -18,11 +18,11 @@ pipeline {
                 '''
                 echo "Terraform Init..."
                 sh '''
-                    terraform init
+                    terraform init -no-color
                 '''
                 echo "Terraform Plan..."
                 sh '''
-                    terraform plan
+                    terraform plan -no-color
                 '''
             }
         }
@@ -38,11 +38,11 @@ pipeline {
                 '''
                 echo "Terraform Init..."
                 sh '''
-                    terraform init
+                    terraform init -no-color
                 '''
                 echo "Terraform Apply..."
                 sh '''
-                    terraform apply -auto-approve
+                    terraform apply -auto-approve -no-color
                 '''
             }
         }
@@ -58,11 +58,11 @@ pipeline {
                 '''
                 echo "Terraform Init..."
                 sh '''
-                    terraform init
+                    terraform init -no-color
                 '''
                 echo "Terraform Destroy..."
                 sh '''
-                    terraform destroy -auto-approve
+                    terraform destroy -auto-approve -no-color
                 '''
             }
         }

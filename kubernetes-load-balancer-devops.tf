@@ -1,11 +1,11 @@
-resource "kubernetes_service" "python-ext-service-main" {
+resource "kubernetes_service" "node-ext-service-main" {
   metadata {
-    name      = "python-ext-service"
+    name      = "node-ext-service"
     namespace = kubernetes_namespace.main.metadata[0].name
   }
   spec {
     selector = {
-      App = kubernetes_deployment.python-ext-deployment-main.spec.0.template.0.metadata[0].labels.App
+      App = kubernetes_deployment.node-ext-deployment-main.spec.0.template.0.metadata[0].labels.App
     }
     port {
       port        = 80
@@ -18,17 +18,17 @@ resource "kubernetes_service" "python-ext-service-main" {
 
 
 output "lb_status_main" {
-  value = kubernetes_service.python-ext-service-main.status
+  value = kubernetes_service.node-ext-service-main.status
 }
 
-resource "kubernetes_service" "python-ext-service-dev" {
+resource "kubernetes_service" "node-ext-service-dev" {
   metadata {
-    name      = "python-ext-service"
+    name      = "node-ext-service"
     namespace = kubernetes_namespace.dev.metadata[0].name
   }
   spec {
     selector = {
-      App = kubernetes_deployment.python-ext-deployment-dev.spec.0.template.0.metadata[0].labels.App
+      App = kubernetes_deployment.node-ext-deployment-dev.spec.0.template.0.metadata[0].labels.App
     }
     port {
       port        = 80
@@ -41,5 +41,5 @@ resource "kubernetes_service" "python-ext-service-dev" {
 
 
 output "lb_status_dev" {
-  value = kubernetes_service.python-ext-service-dev.status
+  value = kubernetes_service.node-ext-service-dev.status
 }

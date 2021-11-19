@@ -1,8 +1,8 @@
-resource "kubernetes_deployment" "python-ext-deployment-main" {
+resource "kubernetes_deployment" "node-ext-deployment-main" {
   metadata {
-    name = "events-external-py"
+    name = "events-external"
     labels = {
-      App = "events-external-py"
+      App = "events-external"
     }
     namespace = kubernetes_namespace.main.metadata[0].name
   }
@@ -12,19 +12,19 @@ resource "kubernetes_deployment" "python-ext-deployment-main" {
     progress_deadline_seconds = 60
     selector {
       match_labels = {
-        App = "events-external-py"
+        App = "events-external"
       }
     }
     template {
       metadata {
         labels = {
-          App = "events-external-py"
+          App = "events-external"
         }
       }
       spec {
         container {
-          image = "kcgjr/pythonclient:v0.1"
-          name  = "events-external-py"
+          image = "kcgjr/sample-external:v0.1"
+          name  = "events-external"
           image_pull_policy = "Always"
 
           port {
@@ -57,11 +57,11 @@ resource "kubernetes_deployment" "python-ext-deployment-main" {
   }
 }
 
-resource "kubernetes_deployment" "python-ext-deployment-dev" {
+resource "kubernetes_deployment" "node-ext-deployment-dev" {
   metadata {
-    name = "events-external-py"
+    name = "events-external"
     labels = {
-      App = "events-external-py"
+      App = "events-external"
     }
     namespace = kubernetes_namespace.dev.metadata[0].name
   }
@@ -71,19 +71,19 @@ resource "kubernetes_deployment" "python-ext-deployment-dev" {
     progress_deadline_seconds = 60
     selector {
       match_labels = {
-        App = "events-external-py"
+        App = "events-external"
       }
     }
     template {
       metadata {
         labels = {
-          App = "events-external-py"
+          App = "events-external"
         }
       }
       spec {
         container {
-          image = "kcgjr/pythonclient:v0.1"
-          name  = "events-external-py"
+          image = "kcgjr/sample-external:v0.1"
+          name  = "events-external"
           image_pull_policy = "Always"
 
           port {
